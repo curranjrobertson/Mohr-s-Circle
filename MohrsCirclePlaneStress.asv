@@ -36,7 +36,7 @@ plot(p_avg,-tau_max, '.', 'MarkerSize', 20);
 plot(p_avg,tau_max, '.', 'MarkerSize', 20);
 plot(nx, tau,'.', 'MarkerSize', 20);
 plot(ny, tau,'.', 'MarkerSize', 20);
-legend('shear(normal)','shear(normal)','principal stress 1','principal stress 2','average normal stress', '(p avg, -tau max)','(p avg, tau max)','REF1(nx, tau)','REF2(ny, tau)')
+legend('shear(normal)','shear(normal)','principal stress 1','principal stress 2','average normal stress', '(p_(avg), -tau_(max))','(p_(avg), tau_(max))','REF1(nx, tau)','REF2(ny, tau)')
 axis equal
 
 hold off
