@@ -8,16 +8,16 @@ function [] = MohrsCirclePlaneStress(nx,ny,tau)
 syms sigma_xprime tau_xyprime Eqn;
 
 %Calculate average normal
-sigma_avg = (nx+ny)/2
+sigma_avg = (nx+ny)/2;
 %Calculate Radius
-R = sqrt(((nx-ny)/2)^2 + tau^2)
+R = sqrt(((nx-ny)/2)^2 + tau^2);
 %Equation of circle
 Eqn = (sigma_xprime - sigma_avg)^2 + tau_xyprime^2 - R^2;
 %Solve for shear
 y = solve(Eqn, tau_xyprime);
 
 % Call principal stress Function to get principal stresses
-[p1, p2, p_avg, tau_max, theta_p, theta_s] = principal_stresses(nx, ny, tau)
+[p1, p2, p_avg, tau_max, theta_p, theta_s] = principal_stresses(nx, ny, tau);
 
 % Plot Circle
 fplot(y, [-2.5*abs(tau_max) 2.5*abs(tau_max)]);
