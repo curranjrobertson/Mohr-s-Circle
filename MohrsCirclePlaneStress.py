@@ -48,10 +48,10 @@ def MohrsCirclePlaneStress(nx, ny, tau):
     plt.axis('equal')
     plt.show()
 
-nx = input("What is the Normal Stress in the x-direction?: ")
+nx = int(input("What is the Normal Stress in the x-direction?: "))
 
-ny = input("What is the Normal Stress in the y-direction?: ")
+ny = int(input("What is the Normal Stress in the y-direction?: "))
 
-tau = input("What is the Shear Stress?: ")
+tau = int(input("What is the Shear Stress?: "))
 
 MohrsCirclePlaneStress(nx,ny,tau)
