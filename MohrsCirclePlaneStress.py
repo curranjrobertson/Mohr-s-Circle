@@ -21,10 +21,13 @@ def MohrsCirclePlaneStress(nx, ny, tau):
     # Call principal stress Function to get principal stresses
     p1, p2, p_avg, tau_max, theta_p, theta_s = principal_stresses(nx, ny, tau)
     # Equation of circle
-    y = np.linspace(-2.5 * abs(tau_max), 2.5*abs(tau_max), num=1000)
-    sigma_xprime = np.ones(y.shape) * sigma_avg + np.sqrt(R ** 2 - y ** 2)
+    y1 = np.linspace(-2.5 * abs(tau_max), 2.5*abs(tau_max), num=1000)
+    y2 = np.linspace(2.5 * abs(tau_max), -2.5*abs(tau_max), num=1000)
+    sigma_xprime1 = np.ones(y1.shape) * sigma_avg + np.sqrt(R ** 2 - y1 ** 2)
+    sigma_xprime2 = np.ones(y2.shape) * sigma_avg - np.sqrt(R ** 2 - y2 ** 2)
     # Plot Circle
-    plt.plot(sigma_xprime, y, label='shear(normal)')
+    plt.plot(sigma_xprime1, y1, label='shear(normal)')
+    plt.plot(sigma_xprime2, y2, label='shear(normal)')
     plt.grid()
     plt.title('Mohr s Circle')
     plt.xlabel('sigma (normal stress)')
@@ -38,7 +41,7 @@ def MohrsCirclePlaneStress(nx, ny, tau):
     plt.plot(p_avg, tau_max, '.', markersize=20)
     plt.plot(nx, tau, '.', markersize=20)
     plt.plot(ny, tau, '.', markersize=20)
-    plt.legend(['shear(normal)', 'principal stress 1', 'principal stress 2',
+    plt.legend(['shear(normal)', 'shear(normal)', 'principal stress 1', 'principal stress 2',
                 'average normal stress', '(p avg, -tau max)', '(p avg, tau max)',
                 'REF1(nx, tau)', 'REF2(ny, tau)'])
     plt.axis('equal')
