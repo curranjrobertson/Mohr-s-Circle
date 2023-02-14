@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 import math
 
+
 def principal_stresses(nx, ny, tau):
     p1 = (nx + ny)/2 + math.sqrt(((nx - ny)/2)**2 + tau**2)
     p2 = (nx + ny)/2 - math.sqrt(((nx - ny)/2)**2 + tau**2)
@@ -47,4 +48,10 @@ def MohrsCirclePlaneStress(nx, ny, tau):
     plt.axis('equal')
     plt.show()
 
-MohrsCirclePlaneStress(-12,0,-6)
+nx = input("What is the Normal Stress in the x-direction?: ")
+
+ny = input("What is the Normal Stress in the y-direction?: ")
+
+tau = input("What is the Shear Stress?: ")
+
+MohrsCirclePlaneStress(nx,ny,tau)
