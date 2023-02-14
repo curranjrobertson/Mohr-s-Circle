@@ -21,7 +21,7 @@ def MohrsCirclePlaneStress(nx, ny, tau):
     # Call principal stress Function to get principal stresses
     p1, p2, p_avg, tau_max, theta_p, theta_s = principal_stresses(nx, ny, tau)
     # Equation of circle
-    y = np.linspace(-2.5 * abs(tau_max), num=1000)
+    y = np.linspace(-2.5 * abs(tau_max), 2.5*abs(tau_max), num=1000)
     sigma_xprime = np.ones(y.shape) * sigma_avg + np.sqrt(R ** 2 - y ** 2)
     # Plot Circle
     plt.plot(sigma_xprime, y, label='shear(normal)')
